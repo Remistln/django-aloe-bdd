@@ -1,0 +1,17 @@
+name: isort
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python  ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+    - name: Install isort
+      run: pip install isort==5.6.4
+    - name: Run isort
+      run: isort . --sp=pyproject.toml -c
