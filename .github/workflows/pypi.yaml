@@ -1,0 +1,14 @@
+
+name: Pypi
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup Pypi
+      run : |
+        pip install pip-install-test
+        pip install pip-run
