@@ -1,0 +1,16 @@
+name: coverage-code
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: code-coverage
+        run : |
+          pip install coverage
+          pip install pytest coverage
+          coverage run -m pytest
